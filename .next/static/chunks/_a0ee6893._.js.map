@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Hanish/Downloads/TM/src/app/page.tsx"],"sourcesContent":["\n'use client';\n\nimport { useEffect } from 'react';\nimport { useRouter } from 'next/navigation';\n\nexport default function InitialRedirectPage() {\n  const router = useRouter();\n\n  useEffect(() => {\n    // Immediately redirect to the dashboard page\n    router.replace('/dashboard');\n  }, [router]);\n\n  // Render nothing or a minimal loading indicator while redirecting\n  // For an immediate redirect, often nothing is needed here,\n  // or a very simple \"Redirecting...\" message.\n  // To avoid a flash of content, returning null is common.\n  return null;\n}\n"],"names":[],"mappings":";;;AAGA;AACA;;AAHA;;;AAKe,SAAS;;IACtB,MAAM,SAAS,CAAA,GAAA,qIAAA,CAAA,YAAS,AAAD;IAEvB,CAAA,GAAA,6JAAA,CAAA,YAAS,AAAD;yCAAE;YACR,6CAA6C;YAC7C,OAAO,OAAO,CAAC;QACjB;wCAAG;QAAC;KAAO;IAEX,kEAAkE;IAClE,2DAA2D;IAC3D,6CAA6C;IAC7C,yDAAyD;IACzD,OAAO;AACT;GAbwB;;QACP,qIAAA,CAAA,YAAS;;;KADF","debugId":null}},
+    {"offset": {"line": 49, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Hanish/Downloads/TM/node_modules/next/navigation.js"],"sourcesContent":["module.exports = require('./dist/client/components/navigation')\n"],"names":[],"mappings":"AAAA,OAAO,OAAO","ignoreList":[0],"debugId":null}}]
+}

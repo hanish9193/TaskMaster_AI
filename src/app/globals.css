@@ -1,0 +1,152 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme (Headspace Inspired - Clean & Modern) */
+    --background-hsl: 0 0% 97%; /* Very Light Gray, almost white for the page background */
+    --foreground-hsl: 220 15% 20%; /* Dark Blue-Gray for text */
+    
+    --card-hsl: 0 0% 100%; /* White for cards */
+    --card-foreground-hsl: 220 15% 20%; /* Dark Blue-Gray text on cards */
+    
+    --primary-hsl: 220 15% 25%; /* Dark Muted Blue/Gray for primary buttons */
+    --primary-foreground-hsl: 0 0% 100%; /* White text on primary buttons */
+    
+    --secondary-hsl: 0 0% 94%; /* Lighter Gray for secondary elements */
+    --secondary-foreground-hsl: 220 15% 20%; /* Dark Blue-Gray text on secondary */
+    
+    --muted-hsl: 0 0% 90%; /* Light Gray for muted backgrounds */
+    --muted-foreground-hsl: 220 15% 40%; /* Medium Gray for muted text */
+    
+    --accent-hsl: 25 85% 60%; /* Coral/Orange accent */
+    --accent-foreground-hsl: 0 0% 100%; /* White text on accent */
+    
+    --border-hsl: 0 0% 88%; /* Lighter border */
+    --input-hsl: 0 0% 92%; /* Lighter input background */
+    --ring-hsl: 220 15% 50%; /* Ring color related to primary */
+
+    --background: hsl(var(--background-hsl));
+    --foreground: hsl(var(--foreground-hsl));
+
+    --card: hsl(var(--card-hsl));
+    --card-foreground: hsl(var(--card-foreground-hsl));
+
+    --popover: hsl(var(--card-hsl));
+    --popover-foreground: hsl(var(--card-foreground-hsl));
+
+    --primary: hsl(var(--primary-hsl));
+    --primary-foreground: hsl(var(--primary-foreground-hsl));
+
+    --secondary: hsl(var(--secondary-hsl));
+    --secondary-foreground: hsl(var(--secondary-foreground-hsl));
+
+    --muted: hsl(var(--muted-hsl));
+    --muted-foreground: hsl(var(--muted-foreground-hsl));
+
+    --accent: hsl(var(--accent-hsl));
+    --accent-foreground: hsl(var(--accent-foreground-hsl));
+
+    --destructive: 0 72% 51%; /* Red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive elements */
+
+    --border: hsl(var(--border-hsl));
+    --input: hsl(var(--input-hsl));
+    --ring: hsl(var(--ring-hsl));
+
+    --chart-1: hsl(var(--primary-hsl));
+    --chart-2: hsl(var(--accent-hsl));
+    --chart-3: 179 51% 75%;
+    --chart-4: 16 76% 75%;
+    --chart-5: 200 50% 65%;
+
+    --radius: 1rem; /* Increased border radius for softer corners */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: url('/app-global-background.jpg'); /* Global background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Updated Card Styling - Glassmorphic, Rounded, Subtle Shadow */
+  .themed-card {
+     @apply bg-card/85 text-card-foreground rounded-2xl shadow-xl transition-shadow duration-300 hover:shadow-2xl;
+     backdrop-filter: blur(20px) saturate(150%); /* Increased blur */
+     -webkit-backdrop-filter: blur(20px) saturate(150%); /* Increased blur */
+     border: 1px solid hsl(var(--border-hsl) / 0.3); /* Softer border */
+     box-shadow: 0 8px 32px 0 hsla(var(--foreground-hsl), 0.1), 0 2px 8px 0 hsla(var(--foreground-hsl), 0.05);
+  }
+
+   /* Updated Element Styling - Glassmorphic, Rounded (for inner boxes like AI message box) */
+   .themed-element {
+     @apply bg-secondary/80 text-secondary-foreground rounded-xl p-4; /* Increased opacity */
+     backdrop-filter: blur(24px) saturate(130%); /* Significantly Increased blur, adjusted saturation */
+     -webkit-backdrop-filter: blur(24px) saturate(130%);
+     border: 1px solid hsl(var(--border-hsl) / 0.25); /* Slightly more defined border */
+     box-shadow: 0 4px 16px 0 hsla(var(--foreground-hsl), 0.05);
+   }
+
+  .app-header {
+    @apply fixed top-0 left-0 right-0 z-50;
+    background-color: hsla(var(--card-hsl), 0.75); /* Semi-transparent card background, slightly more opacity */
+    backdrop-filter: blur(20px) saturate(160%); /* Increased blur */
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border-bottom: 1px solid hsl(var(--border-hsl) / 0.2); /* Adjusted border */
+    box-shadow: 0 2px 12px hsla(var(--foreground-hsl), 0.08); /* Adjusted shadow */
+  }
+}
+
+/* Refined & New Animations */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.9s ease-out forwards;
+  }
+  .animate-pop-in {
+     animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-blur-fade-in {
+    animation: blurFadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes popIn {
+    0% { transform: scale(0.95); opacity: 0; }
+    70% { transform: scale(1.01); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes float {
+     0% { transform: translateY(0px); }
+     50% { transform: translateY(-6px); }
+     100% { transform: translateY(0px); }
+  }
+  @keyframes blurFadeIn {
+    from { opacity: 0; filter: blur(8px); transform: translateY(15px) scale(0.98); }
+    to { opacity: 1; filter: blur(0px); transform: translateY(0px) scale(1); }
+  }
+}
